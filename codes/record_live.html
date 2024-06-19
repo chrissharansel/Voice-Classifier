@@ -1,0 +1,74 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Live</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .section {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .content {
+            display: none;
+            margin-top: 10px;
+        }
+        .section:hover .content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Find Voice Type</h2>
+        <div class="content">
+            <p>This section will identify the type of voice in the input audio.</p>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Find Emotion</h2>
+        <div class="content">
+            <p>This section will detect the emotion in the input audio.</p>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Get Text</h2>
+        <div class="content">
+            <p>This section will extract text from the input audio.</p>
+        </div>
+    </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Live</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Record Live</h1>
+        <div class="options">
+            <form action="/record_find_voice_type" method="POST" enctype="multipart/form-data">
+                <input type="file" name="audio_file" accept=".wav, .mp3" class="file-input">
+                <button type="submit" class="btn">Get Voice Type</button>
+            </form>
+            <form action="/record_find_emotion" method="POST" enctype="multipart/form-data">
+                <button type="submit" class="btn">Get Emotion</button>
+            </form>
+            <form action="/record_find_text" method="POST" enctype="multipart/form-data">
+                <button type="submit" class="btn">Get Text</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Live</title>
+</head>
+<body>
+    <h1>Record Live</h1>
+    <button onclick="getText()">Get Text</button>
+    <button onclick="getEmotion()">Get Emotion</button>
+    <button onclick="getVoiceType()">Get Voice Type</button>
+    <div id="result"></div>
+
+    <script>
+        function getText() {
+            fetch('/get_text')
+            .then(response => response.text())
+            .then(data => document.getElementById('result').innerHTML = data);
+        }
+
+        function getEmotion() {
+            fetch('/get_emotion_record')
+            .then(response => response.json())
+            .then(data => document.getElementById('result').innerHTML = JSON.stringify(data));
+        }
+
+        function getVoiceType() {
+            fetch('/get_voice_type')
+            .then(response => response.text())
+            .then(data => document.getElementById('result').innerHTML = data);
+        }
+    </script>
+</body>
+</html>
